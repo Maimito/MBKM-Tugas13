@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="movies">Film</string>
+    <string name="tv_shows">Serial TV</string>
+    <string name="favourite">Favorit</string>
+    <string name="exit_app_confirm">Keluar?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+</resources>

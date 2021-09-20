@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mbkm.bp.tugas11">
+    package="com.mbkm.bp.tugas12">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,9 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tugas11GITS">
-        <activity android:name=".SplashScreen"></activity>
+        <activity android:name="com.mbkm.bp.tugas12.MainActivity"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.mbkm.bp.tugas12.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="splash_screen">#EF5350</color>
+    <color name="colorscheme">#F44336</color>
+    <color name="colorscheme_variant">#D32F2F</color>
 </resources>

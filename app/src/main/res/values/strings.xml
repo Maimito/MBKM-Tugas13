@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Tugas11-GITS</string>
+    <string name="app_name" translatable="false">TMDB Fetcher</string>
+    <string name="movies">Movies</string>
+    <string name="tv_shows">TV Shows</string>
+    <string name="favourite">Favourite</string>
+    <string name="hello_blank_fragment" translatable="false">Coming soon</string>
+    <string name="exit_app_confirm">Exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
