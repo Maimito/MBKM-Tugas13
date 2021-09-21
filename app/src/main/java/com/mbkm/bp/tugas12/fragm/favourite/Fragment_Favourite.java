@@ -1,4 +1,4 @@
-package com.mbkm.bp.tugas12.fragm;
+package com.mbkm.bp.tugas12.fragm.favourite;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.mbkm.bp.tugas12.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Fragment_TVList#newInstance} factory method to
+ * Use the {@link Fragment_Favourite#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Fragment_TVList extends Fragment {
+public class Fragment_Favourite extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class Fragment_TVList extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Fragment_TVList() {
+    public Fragment_Favourite() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class Fragment_TVList extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment com.mbkm.bp.tugas11.TVFragment.
+     * @return A new instance of fragment com.mbkm.bp.tugas11.FavFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment_TVList newInstance(String param1, String param2) {
-        Fragment_TVList fragment = new Fragment_TVList();
+    public static Fragment_Favourite newInstance(String param1, String param2) {
+        Fragment_Favourite fragment = new Fragment_Favourite();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class Fragment_TVList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_t_v, container, false);
+        return inflater.inflate(R.layout.fragment_fav, container, false);
     }
 }

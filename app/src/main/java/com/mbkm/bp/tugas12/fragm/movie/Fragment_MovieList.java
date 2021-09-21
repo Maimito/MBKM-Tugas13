@@ -1,16 +1,30 @@
-package com.mbkm.bp.tugas12.fragm;
+package com.mbkm.bp.tugas12.fragm.movie;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.mbkm.bp.tugas12.R;
 import com.mbkm.bp.tugas12.adapterr.MovieAdapter;
+import com.mbkm.bp.tugas12.api.ApiService;
+import com.mbkm.bp.tugas12.api.InitRetrofit;
+import com.mbkm.bp.tugas12.model.MovieResponse;
+import com.mbkm.bp.tugas12.model.Result;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +37,7 @@ public class Fragment_MovieList extends Fragment {
     private final String TAG = "debug";
 
     private MovieAdapter movieAdapter;
+    private List<Result> result;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,7 +84,33 @@ public class Fragment_MovieList extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_movie, container, false);
-
+        recyclerView = root.findViewById(R.id.rv_movie);
+        getData();
         return root;
+    }
+
+    public void getData(){
+        ApiService apiService = InitRetrofit.getApiService();
+        apiService.ambilData().enqueue(new Callback<MovieResponse>() {
+            @Override
+            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response){
+                Log.d(TAG, "onResponse: " + response.body().getDateList().getMaximum());
+                if (response.isSuccessful()){
+                    result = new ArrayList<>();
+                    result = response.body().getResults();
+                    movieAdapter = new MovieAdapter(getActivity(), result);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    recyclerView.setAdapter(movieAdapter);
+                } else {
+                    Toast.makeText(getActivity(), "Gagal mengambil data", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MovieResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Periksa koneksi internet anda" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onFailure: " + t.getMessage());
+            }
+        });
     }
 }

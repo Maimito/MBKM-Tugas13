@@ -5,19 +5,24 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.mbkm.bp.tugas12.fragm.Fragment_Favourite;
-import com.mbkm.bp.tugas12.fragm.Fragment_MovieList;
-import com.mbkm.bp.tugas12.fragm.Fragment_TVList;
+import com.mbkm.bp.tugas12.fragm.favourite.Fragment_Favourite;
+import com.mbkm.bp.tugas12.fragm.movie.Fragment_MovieList;
+import com.mbkm.bp.tugas12.fragm.tv.Fragment_TVList;
 
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     private Fragment fragment;
+    boolean state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(BottomMethod);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new Fragment_MovieList()).commit();
+
     }
 
     public void onBackPressed(){

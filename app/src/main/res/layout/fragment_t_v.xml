@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragm.Fragment_TVList">
+    tools:context=".fragm.tv.Fragment_TVList">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
