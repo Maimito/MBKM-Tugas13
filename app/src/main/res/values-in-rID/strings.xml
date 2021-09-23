@@ -6,4 +6,5 @@
     <string name="exit_app_confirm">Keluar?</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
+    <string name="action_settings">Pengaturan</string>
 </resources>

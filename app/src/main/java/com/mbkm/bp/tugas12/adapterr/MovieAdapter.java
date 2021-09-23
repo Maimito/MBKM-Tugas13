@@ -2,7 +2,6 @@ package com.mbkm.bp.tugas12.adapterr;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +11,8 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.balysv.materialripple.MaterialRippleLayout;
 import com.bumptech.glide.Glide;
-import com.google.android.material.card.MaterialCardView;
-import com.mbkm.bp.tugas12.DetailActivity;
+import com.mbkm.bp.tugas12.MovieDetailActivity;
 import com.mbkm.bp.tugas12.R;
 import com.mbkm.bp.tugas12.model.Result;
 
@@ -48,10 +45,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         movieViewHolder.cv_movie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DetailActivity.class);
+                Intent intent = new Intent(context, MovieDetailActivity.class);
                 intent.putExtra("backdrop", url + result.get(i).getBackdropPath());
                 intent.putExtra("detail", result.get(i).getOverview());
                 intent.putExtra("title", result.get(i).getTitle());
+                intent.putExtra("id", result.get(i).getId());
                 context.startActivity(intent);
             }
         });

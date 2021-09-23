@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MovieDetailActivity">
+    tools:context=".FavouriteDetailActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -29,7 +29,7 @@
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/Theme.Tugas11GITS.PopupOverlay" />
-            
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -40,6 +40,8 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <include layout="@layout/fav_content_scrolling" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -47,8 +49,6 @@
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_baseline_star_24" />
-
-    <include layout="@layout/content_scrolling" />
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

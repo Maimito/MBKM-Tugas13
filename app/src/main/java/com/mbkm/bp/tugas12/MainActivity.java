@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.mbkm.bp.tugas12.db.AppDatabase;
 import com.mbkm.bp.tugas12.fragm.favourite.Fragment_Favourite;
 import com.mbkm.bp.tugas12.fragm.movie.Fragment_MovieList;
 import com.mbkm.bp.tugas12.fragm.tv.Fragment_TVList;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     private Fragment fragment;
     boolean state;
+    public static AppDatabase appDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(BottomMethod);
+        appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class,"favdb").fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new Fragment_MovieList()).commit();
+
 
     }
 
